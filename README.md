@@ -18,12 +18,14 @@ Python 初級者向けのサンプルプログラム集
 
 ## おみくじ (/omikuji)
 
-| 難易度 | ファイル名                                                                                  | 概要                        | キーワード                      |
-| ------ | ------------------------------------------------------------------------------------------- | --------------------------- | ------------------------------- |
-| ☆      | [omikuji01.py](https://github.com/AyumuTakai/python_samples/blob/main/omikuji/omikuji01.py) | 均等な確率のおみくじ        | random,リスト,len 関数          |
-| ☆      | [omikuji02.py](https://github.com/AyumuTakai/python_samples/blob/main/omikuji/omikuji02.py) | 確率の異なるおみくじ その 1 | random,リスト,len 関数          |
-| ☆☆☆    | [omikuji03.py](https://github.com/AyumuTakai/python_samples/blob/main/omikuji/omikuji03.py) | 確率の異なるおみくじ その 2 | random,リスト,for in,break      |
-| ☆☆☆    | [omikuji04.py](https://github.com/AyumuTakai/python_samples/blob/main/omikuji/omikuji04.py) | 詳細なおみくじ              | random,リスト,辞書,for in,break |
+| 難易度 | ファイル名                                                                                  | 概要                             | キーワード                                                    |
+| ------ | ------------------------------------------------------------------------------------------- | -------------------------------- | ------------------------------------------------------------- |
+| ☆      | [omikuji01.py](https://github.com/AyumuTakai/python_samples/blob/main/omikuji/omikuji01.py) | 均等な確率のおみくじ             | random,リスト,len 関数                                        |
+| ☆      | [omikuji02.py](https://github.com/AyumuTakai/python_samples/blob/main/omikuji/omikuji02.py) | 確率の異なるおみくじ その 1      | random,リスト,len 関数                                        |
+| ☆☆☆    | [omikuji03.py](https://github.com/AyumuTakai/python_samples/blob/main/omikuji/omikuji03.py) | 確率の異なるおみくじ その 2      | random,リスト,for in,break                                    |
+| ☆☆☆    | [omikuji04.py](https://github.com/AyumuTakai/python_samples/blob/main/omikuji/omikuji04.py) | 詳細なおみくじ                   | random,リスト,辞書,for in,break                               |
+| ☆☆☆☆   | [omikuji05.py](https://github.com/AyumuTakai/python_samples/blob/main/omikuji/omikuji05.py) | 関数化した詳細なおみくじ         | 関数,random,リスト,辞書,for in,break                          |
+| ☆☆☆☆☆  | [omikuji06.py](https://github.com/AyumuTakai/python_samples/blob/main/omikuji/omikuji06.py) | テストコードを含む詳細なおみくじ | モジュール,\_\_name\_\_,assert,関数,random,リスト,辞書,for in |
 
 ## TODO
 
