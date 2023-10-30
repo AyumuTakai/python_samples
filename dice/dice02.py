@@ -7,6 +7,6 @@ import random
 times = int(input("何回さいころを振りますか?整数で入力してください:"))
 i = 0
 while i < times:
-    n = random.randint(1,6)
+    n = random.randint(1, 6)
     print(n)
-    i+=1
+    i += 1

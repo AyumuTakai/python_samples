@@ -9,9 +9,9 @@ times = int(input("何回さいころを振りますか?整数で入力してく
 i = 0
 sum = 0
 while i < times:
-    n = random.randint(1,6)
+    n = random.randint(1, 6)
     print(n)
     sum += n
-    i+=1
+    i += 1
 
-print(times,"回さいころを振った合計は",sum)
+print(times, "回さいころを振った合計は", sum)

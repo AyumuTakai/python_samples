@@ -5,6 +5,6 @@
 """
 import random
 
-omikuji = ["大吉","中吉","中吉","小吉","小吉","凶"]
+omikuji = ["大吉", "中吉", "中吉", "小吉", "小吉", "凶"]
 
-print(omikuji[random.randint(0,len(omikuji))])
+print(omikuji[random.randint(0, len(omikuji))])
