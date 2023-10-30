@@ -18,3 +18,9 @@ Python 初級者向けのサンプルプログラム集
 | ☆      | omikuji02.py | 確率の異なるおみくじ その 1 | random,リスト,len 関数          |
 | ☆☆☆    | omikuji03.py | 確率の異なるおみくじ その 2 | random,リスト,for in,break      |
 | ☆☆☆    | omikuji04.py | 詳細なおみくじ              | random,リスト,辞書,for in,break |
+
+## TODO
+
+- 課題として出題するための問題文
+- プログラムの解説
+- 応用課題の案
