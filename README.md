@@ -1,0 +1,2 @@
+# python_samples
+Python初級者向けのサンプルプログラム集
