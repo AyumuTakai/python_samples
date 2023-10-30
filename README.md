@@ -29,9 +29,9 @@ Python 初級者向けのサンプルプログラム集
 
 ## Web API の利用(/webapi)
 
-| 難易度 | ファイル名                                                                                  | 概要                   | キーワード                             |
-| ------ | ------------------------------------------------------------------------------------------- | ---------------------- | -------------------------------------- |
-| ☆☆☆☆   | [getWether.py](https://github.com/AyumuTakai/python_samples/blob/main/webapi/getWeather.py) | 天気予報を取得して表示 | モジュール,request,JSON,datetime,range |
+| 難易度 | ファイル名                                                                                     | 概要                   | キーワード                             |
+| ------ | ---------------------------------------------------------------------------------------------- | ---------------------- | -------------------------------------- |
+| ☆☆☆☆   | [get_weather.py](https://github.com/AyumuTakai/python_samples/blob/main/webapi/get_weather.py) | 天気予報を取得して表示 | モジュール,request,JSON,datetime,range |
 
 ## TODO
 
