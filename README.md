@@ -27,6 +27,12 @@ Python 初級者向けのサンプルプログラム集
 | ☆☆☆☆   | [omikuji05.py](https://github.com/AyumuTakai/python_samples/blob/main/omikuji/omikuji05.py) | 関数化した詳細なおみくじ         | 関数,random,リスト,辞書,for in,break                          |
 | ☆☆☆☆☆  | [omikuji06.py](https://github.com/AyumuTakai/python_samples/blob/main/omikuji/omikuji06.py) | テストコードを含む詳細なおみくじ | モジュール,\_\_name\_\_,assert,関数,random,リスト,辞書,for in |
 
+## Web API の利用(/webapi)
+
+| 難易度 | ファイル名                                                                                  | 概要                   | キーワード                             |
+| ------ | ------------------------------------------------------------------------------------------- | ---------------------- | -------------------------------------- |
+| ☆☆☆☆   | [getWether.py](https://github.com/AyumuTakai/python_samples/blob/main/webapi/getWeather.py) | 天気予報を取得して表示 | モジュール,request,JSON,datetime,range |
+
 ## TODO
 
 - 課題として出題するための問題文
