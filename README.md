@@ -2,6 +2,8 @@
 
 Python 初級者向けのサンプルプログラム集
 
+Java 版は[こちら](https://github.com/AyumuTakai/java_samples)
+
 ## 変換/暗号 (/convert)
 
 | 難易度 | ファイル名                                                                                            | 概要             | キーワード    |
