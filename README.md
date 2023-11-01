@@ -6,9 +6,10 @@ Java 版は[こちら](https://github.com/AyumuTakai/java_samples)
 
 ## 変換/暗号 (/convert)
 
-| 難易度 | ファイル名                                                                                            | 概要             | キーワード    |
-| ------ | ----------------------------------------------------------------------------------------------------- | ---------------- | ------------- |
-| ☆      | [tanuki_decrypt.py](https://github.com/AyumuTakai/python_samples/blob/main/convert/tanuki_decrypt.py) | たぬき暗号解読器 | replace,input |
+| 難易度 | ファイル名                                                                                            | 概要             | キーワード                       |
+| ------ | ----------------------------------------------------------------------------------------------------- | ---------------- | -------------------------------- |
+| ☆      | [tanuki_decrypt.py](https://github.com/AyumuTakai/python_samples/blob/main/convert/tanuki_decrypt.py) | たぬき暗号解読器 | replace,input                    |
+| ☆☆     | [tanuki_decrypt.py](https://github.com/AyumuTakai/python_samples/blob/main/convert/tanuki_decrypt.py) | 回文チェッカー   | reversed,list,join,if-else,input |
 
 ## さいころ (/dice)
 
