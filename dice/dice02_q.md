@@ -122,7 +122,7 @@ flowchart TD
   - 条件分岐によるエラーメッセージの表示
   - 例外処理によるエラーメッセーッジの表示
 - でた目の合計を計算したい
-  - dice03.py
+  - [dice03.py](https://github.com/AyumuTakai/python_samples/blob/teaching_aids/dice/dice03.py)
 - アナログゲームで使われる nDm 表記(3D10 なら 10 面体 3 個の合計)に対応したい
   - 正規表現を使用して文字列から数値を取り出す
 - さいころを画像で表示したい
