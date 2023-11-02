@@ -6,12 +6,12 @@
 import random
 
 times = int(input("何回さいころを振りますか?整数で入力してください:"))
+result = 0
 i = 0
-sum = 0
 while i < times:
     n = random.randint(1, 6)
     print(n)
-    sum += n
+    result += n
     i += 1
 
-print(times, "回さいころを振った合計は", sum)
+print(times, "回さいころを振った合計は", result)
