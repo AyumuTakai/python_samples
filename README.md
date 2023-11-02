@@ -37,6 +37,12 @@ Java 版は[こちら](https://github.com/AyumuTakai/java_samples)
 | ------ | ---------------------------------------------------------------------------------------------- | ---------------------- | -------------------------------------- |
 | ☆☆☆☆   | [get_weather.py](https://github.com/AyumuTakai/python_samples/blob/main/webapi/get_weather.py) | 天気予報を取得して表示 | モジュール,request,JSON,datetime,range |
 
+## GUI (/gui)
+
+| 難易度 | ファイル名                                                                             | 概要          | キーワード                                   |
+| ------ | -------------------------------------------------------------------------------------- | ------------- | -------------------------------------------- |
+| ☆☆☆☆☆  | (WIP)[pybird.py](https://github.com/AyumuTakai/python_samples/blob/main/gui/pybird.py) | PyBird ゲーム | モジュール,tkinter,関数,GUI,イベントドリブン |
+
 ## TODO
 
 - 課題として出題するための問題文
