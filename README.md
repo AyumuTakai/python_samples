@@ -31,6 +31,10 @@ Java 版は[こちら](https://github.com/AyumuTakai/java_samples)
 | ☆☆☆☆☆  | [omikuji06.py](https://github.com/AyumuTakai/python_samples/blob/main/omikuji/omikuji06.py) | テストコードを含む詳細なおみくじ           | モジュール,\_\_name\_\_,assert,関数,random,リスト,辞書,if,for in                 |
 | ☆☆☆☆☆  | [omikuji07.py](https://github.com/AyumuTakai/python_samples/blob/main/omikuji/omikuji07.py) | ファイルからデータを読み込む詳細なおみくじ | ファイル入力,split,モジュール,\_\_name\_\_,assert,関数,random,リスト,辞書,for in |
 
+## おつりの組合せ
+
+## 4 択クイズ
+
 ## Web API の利用(/webapi)
 
 | 難易度 | ファイル名                                                                                     | 概要                   | キーワード                             |
