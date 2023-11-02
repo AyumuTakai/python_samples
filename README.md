@@ -31,11 +31,16 @@ Java 版は[こちら](https://github.com/AyumuTakai/java_samples)
 | ☆☆☆☆☆  | [omikuji06.py](https://github.com/AyumuTakai/python_samples/blob/main/omikuji/omikuji06.py) | テストコードを含む詳細なおみくじ           | モジュール,\_\_name\_\_,assert,関数,random,リスト,辞書,if,for in                 |
 | ☆☆☆☆☆  | [omikuji07.py](https://github.com/AyumuTakai/python_samples/blob/main/omikuji/omikuji07.py) | ファイルからデータを読み込む詳細なおみくじ | ファイル入力,split,モジュール,\_\_name\_\_,assert,関数,random,リスト,辞書,for in |
 
-## おつりの組合せ
+## おつりの組合せ (/otsuri)
+
+| 難易度 | ファイル名                                                                               | 概要                        | キーワード                          |
+| ------ | ---------------------------------------------------------------------------------------- | --------------------------- | ----------------------------------- |
+| ☆      | [otsuri01.py](https://github.com/AyumuTakai/python_samples/blob/main/otsuri/otsuri01.py) | お釣りの組合せ計算機 その 1 | int,input,if,四則演算               |
+| ☆☆     | [otsuri02.py](https://github.com/AyumuTakai/python_samples/blob/main/otsuri/otsuri02.py) | お釣りの組合せ計算機 その 2 | int,input,if,リスト,for in,四則演算 |
 
 ## 4 択クイズ
 
-## Web API の利用(/webapi)
+## Web API の利用 (/webapi)
 
 | 難易度 | ファイル名                                                                                     | 概要                   | キーワード                             |
 | ------ | ---------------------------------------------------------------------------------------------- | ---------------------- | -------------------------------------- |
