@@ -36,7 +36,7 @@ Java 版は[こちら](https://github.com/AyumuTakai/java_samples)
 | 難易度 | ファイル名                                                                               | 概要                                    | キーワード                           |
 | ------ | ---------------------------------------------------------------------------------------- | --------------------------------------- | ------------------------------------ |
 | ☆☆☆    | [janken01.py](https://github.com/AyumuTakai/python_samples/blob/main/janken/janken01.py) | じゃんけんゲーム 条件分岐による勝敗判定 | random,int,input,リスト,if-elif-else |
-| ☆☆☆    | [janken02.py](https://github.com/AyumuTakai/python_samples/blob/main/janken/janken01.py) | じゃんけんゲーム 剰余による勝敗判定     | random,int,input,リスト,剰余         |
+| ☆☆☆    | [janken02.py](https://github.com/AyumuTakai/python_samples/blob/main/janken/janken02.py) | じゃんけんゲーム 剰余による勝敗判定     | random,int,input,リスト,剰余         |
 
 ## おつりの組合せ (/otsuri)
 
