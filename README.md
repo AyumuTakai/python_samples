@@ -2,6 +2,8 @@
 
 Python 初級者向けのサンプルプログラム集
 
+<p style="color:red;font-weight:bold;">このgetting_readyブランチは作成中のプログラムが含まれます。</p>
+
 Java 版は[こちら](https://github.com/AyumuTakai/java_samples)
 
 ## 変換/暗号 (/convert)
