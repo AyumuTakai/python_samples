@@ -2,6 +2,8 @@
 
 Python 初級者向けのサンプルプログラム集
 
+<p style="color:red;font-weight:bold;">このgetting_readyブランチは作成中のプログラムが含まれます。</p>
+
 Java 版は[こちら](https://github.com/AyumuTakai/java_samples)
 
 ## 変換/暗号 (/convert)
@@ -31,11 +33,33 @@ Java 版は[こちら](https://github.com/AyumuTakai/java_samples)
 | ☆☆☆☆☆  | [omikuji06.py](https://github.com/AyumuTakai/python_samples/blob/main/omikuji/omikuji06.py) | テストコードを含む詳細なおみくじ           | モジュール,\_\_name\_\_,assert,関数,random,リスト,辞書,if,for in                 |
 | ☆☆☆☆☆  | [omikuji07.py](https://github.com/AyumuTakai/python_samples/blob/main/omikuji/omikuji07.py) | ファイルからデータを読み込む詳細なおみくじ | ファイル入力,split,モジュール,\_\_name\_\_,assert,関数,random,リスト,辞書,for in |
 
-## Web API の利用(/webapi)
+## じゃんけん (/janken)
+
+| 難易度 | ファイル名                                                                               | 概要                                    | キーワード                           |
+| ------ | ---------------------------------------------------------------------------------------- | --------------------------------------- | ------------------------------------ |
+| ☆☆☆    | [janken01.py](https://github.com/AyumuTakai/python_samples/blob/main/janken/janken01.py) | じゃんけんゲーム 条件分岐による勝敗判定 | random,int,input,リスト,if-elif-else |
+| ☆☆☆    | [janken02.py](https://github.com/AyumuTakai/python_samples/blob/main/janken/janken01.py) | じゃんけんゲーム 剰余による勝敗判定     | random,int,input,リスト,剰余         |
+
+## おつりの組合せ (/otsuri)
+
+| 難易度 | ファイル名                                                                               | 概要                        | キーワード                               |
+| ------ | ---------------------------------------------------------------------------------------- | --------------------------- | ---------------------------------------- |
+| ☆      | [otsuri01.py](https://github.com/AyumuTakai/python_samples/blob/main/otsuri/otsuri01.py) | お釣りの組合せ計算機 その 1 | int,input,if,整数除算,剰余               |
+| ☆☆     | [otsuri02.py](https://github.com/AyumuTakai/python_samples/blob/main/otsuri/otsuri02.py) | お釣りの組合せ計算機 その 2 | int,input,if,リスト,for in,整数除算,剰余 |
+
+## 4 択クイズ
+
+## Web API の利用 (/webapi)
 
 | 難易度 | ファイル名                                                                                     | 概要                   | キーワード                             |
 | ------ | ---------------------------------------------------------------------------------------------- | ---------------------- | -------------------------------------- |
 | ☆☆☆☆   | [get_weather.py](https://github.com/AyumuTakai/python_samples/blob/main/webapi/get_weather.py) | 天気予報を取得して表示 | モジュール,request,JSON,datetime,range |
+
+## GUI (/gui)
+
+| 難易度 | ファイル名                                                                             | 概要          | キーワード                                   |
+| ------ | -------------------------------------------------------------------------------------- | ------------- | -------------------------------------------- |
+| ☆☆☆☆☆  | (WIP)[pybird.py](https://github.com/AyumuTakai/python_samples/blob/main/gui/pybird.py) | PyBird ゲーム | モジュール,tkinter,関数,GUI,イベントドリブン |
 
 ## TODO
 
