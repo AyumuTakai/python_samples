@@ -36,16 +36,16 @@ dice02.py
 
 ```mermaid
 flowchart TD
-    _begin([start])
-    id01[<1> times ← 回数の入力]
-    id02[<2> i ← 0]
-    id03[/i < times\]
-    id04[<3> n ← 1から6の乱数]
-    id05[nの値を表示し改行する]
-    id06[<4> i ← i + 1]
+    b([start])
+    id01["<1> times ← 回数の入力"]
+    id02["<2> i ← 0"]
+    id03[/"i < times"\]
+    id04["<3> n ← 1から6の乱数"]
+    id05["nの値を表示し改行する"]
+    id06["<4> i ← i + 1"]
     id07[\"#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;"/]
-    _end([end])
-    _begin-->id01-->id02-->id03-->id04-->id05-->id06-->id07-->_end
+    e([end])
+    b-->id01-->id02-->id03-->id04-->id05-->id06-->id07-->e
 ```
 
 ## 変数の変化
