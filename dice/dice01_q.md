@@ -25,8 +25,8 @@ dice01.py
 
 ```mermaid
 flowchart TD
-    _begin([start])
+    b([start])
     id01[1から6の乱数を発生させ表示する]
-    _end([end])
-    _begin --> id01 --> _end
+    e([end])
+    b-->id01-->e
 ```
