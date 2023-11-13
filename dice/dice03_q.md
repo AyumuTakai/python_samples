@@ -38,19 +38,19 @@ dice03.py
 
 ```mermaid
 flowchart TD
-    _begin([start])
-    id01[<1> times ← 回数の入力]
-    id02[<2> result ← 0]
-    id03[<3> i ← 0]
-    id04[/i < times\]
-    id05[<4> n ← 1から6の乱数]
-    id06[nの値を表示し改行する]
-    id07[<5> result ← result + n]
-    id08[<6> i ← i + 1]
+    b(["start"])
+    id01["<1> times ← 回数の入力"]
+    id02["<2> result ← 0"]
+    id03["<3> i ← 0"]
+    id04[/"i < times"\]
+    id05["<4> n ← 1から6の乱数"]
+    id06["nの値を表示し改行する"]
+    id07["<5> result ← result + n"]
+    id08["<6> i ← i + 1"]
     id09[\"#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;"/]
-id10["'times 回さいころを振った合計は result'" を表示 ]
-    _end([end])
-    _begin-->id01-->id02-->id03-->id04-->id05-->id06-->id07-->id08-->id09-->id10-->_end
+    id10["'times 回さいころを振った合計は result' を表示 "]
+    e(["end"])
+    b-->id01-->id02-->id03-->id04-->id05-->id06-->id07-->id08-->id09-->id10-->e
 ```
 
 ## 変数の変化
