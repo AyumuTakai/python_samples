@@ -39,9 +39,9 @@ results = ["あいこ", "あなたの勝ち", "あなたの負け"]
 
 if result > 0:
     # 正常時の表示
-    print("あなたの手:", hands[player_hand])  # 入力によって"グー"の部分を切り替える
-    print("コンピューターの手:", hands[computer_hand])  # ランダムに"チョキ"の部分を切り替える
-    print(results[result])  # ユーザーの手とコンピューターの手の組合せで表示を切り替える
+    print("あなたの手:", hands[player_hand])
+    print("コンピューターの手:", hands[computer_hand])
+    print(results[result])
 else:
     # エラー時の表示
     print("0,1,2のいずれかで入力してください")
