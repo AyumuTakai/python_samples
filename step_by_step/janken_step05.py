@@ -55,7 +55,7 @@ else:
 hands = ["グー", "チョキ", "パー"]
 results = ["あいこ", "あなたの勝ち", "あなたの負け"]
 
-if result > 0:
+if result >= 0:
     # 正常時の表示
     print("あなたの手:", hands[player_hand])
     print("コンピューターの手:", hands[computer_hand])
