@@ -29,15 +29,15 @@ if player_hand == computer_hand:
     result = 0  # あいこ
 elif player_hand == 0 and computer_hand == 1:  # グー vs チョキ
     result = 1  # プレイヤーの勝ち
-elif player_hand == 1 and computer_hand == 2:
+elif player_hand == 1 and computer_hand == 2:  # チョキ vs パー
     result = 1  # プレイヤーの勝ち
-elif player_hand == 2 and computer_hand == 0:
+elif player_hand == 2 and computer_hand == 0:  # パー vs グー
     result = 1  # プレイヤーの勝ち
 elif player_hand == 0 and computer_hand == 2:  # グー vs パー
     result = 2  # プレイヤーの負け
-elif player_hand == 1 and computer_hand == 0:
+elif player_hand == 1 and computer_hand == 0:  # チョキ vs グー
     result = 2  # プレイヤーの負け
-elif player_hand == 2 and computer_hand == 1:
+elif player_hand == 2 and computer_hand == 1:  # パー vs チョキ
     result = 2  # プレイヤーの負け
 
 #
