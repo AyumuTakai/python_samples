@@ -4,6 +4,32 @@ Python 初級者向けのサンプルプログラム集
 
 Java 版は[こちら](https://github.com/AyumuTakai/java_samples)
 
+## プログラム開発の進め方 (/step_by_step)
+
+じゃんけんゲームを例に、プログラム開発の際にどのような手順や考え方で設計し実装するのか、
+段階的にプログラム実装する流れをまとめました。
+
+人によって開発の流れ、順番や考え方は異なります。
+この手順だけが正解のように扱わず、あくまで一つの例として扱ってください。
+
+| ステップ | ファイル名 | 概要 |
+|--------|-----------|-----|
+|01| [janken_step01.py](https://github.com/AyumuTakai/python_samples/blob/main/step_by_step/janken_step01.py)|ランダムな要素や条件分岐などの処理はせず、まずは仮の表示で実行時のイメージを固める|
+|02| [janken_step02.py](https://github.com/AyumuTakai/python_samples/blob/main/step_by_step/janken_step02.py)|出力の切り替え処理を記述する|
+|03| [janken_step03.py](https://github.com/AyumuTakai/python_samples/blob/main/step_by_step/janken_step03.py)|勝敗判定の処理を記述する|
+|04| [janken_step04.py](https://github.com/AyumuTakai/python_samples/blob/main/step_by_step/janken_step04.py)|プレイヤーの手をキーボードから入力し、ランダムなコンピューターの手と勝負できるようにする|
+|05| [janken_step05.py](https://github.com/AyumuTakai/python_samples/blob/main/step_by_step/janken_step05.py)|不正な値が入力された場合の対策を行なう|
+|06| [janken_step06.py](https://github.com/AyumuTakai/python_samples/blob/main/step_by_step/janken_step06.py), [janken_judge.py](https://github.com/AyumuTakai/python_samples/blob/main/step_by_step/janken_judge.py)|勝敗判定を関数にまとめ、別ファイルに分離する|
+
+### プログラミングの前に
+
+プログラムを何も考えずにいきなり書きだすことはできません。
+プログラム言語の文法だけ覚えても実用的なプログラムを作ることは難しいでしょう。
+明文化するかどうかは別として、プログラムを書き出すまえに要件定義や設計といった工程をおこなってプログラムの仕様を明確にします。
+
+小さなプログラムを作成する際の設計の例を"[プログラムの設計.pdf](https://github.com/AyumuTakai/python_samples/blob/main/step_by_step/プログラムの設計.pdf)"にまとめてあります。
+プログラム開発に慣れてくると頭の中だけで設計をある程度まとめられるようになります。
+
 ## 変換/暗号 (/convert)
 
 | 難易度 | ファイル名                                                                                                | 概要             | キーワード                       |
