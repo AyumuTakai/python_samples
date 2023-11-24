@@ -47,7 +47,12 @@ Java 版は[こちら](https://github.com/AyumuTakai/java_samples)
 | ☆      | [otsuri01.py](https://github.com/AyumuTakai/python_samples/blob/main/otsuri/otsuri01.py) | お釣りの組合せ計算機 その 1 | int,input,if,整数除算,剰余               |
 | ☆☆     | [otsuri02.py](https://github.com/AyumuTakai/python_samples/blob/main/otsuri/otsuri02.py) | お釣りの組合せ計算機 その 2 | int,input,if,リスト,for in,整数除算,剰余 |
 
-## 4 択クイズ
+## 単語帳
+
+| 難易度 | ファイル名                                                                               | 概要                        | キーワード                               |
+| ------ | ---------------------------------------------------------------------------------------- | --------------------------- | ---------------------------------------- |
+| ☆☆☆   | [flashcard01.py](https://github.com/AyumuTakai/python_samples/blob/main/flashcard/flashcard01.py) | 単語帳 | input,with,open,Path,\_\_file\_\_,random,リスト,条件分岐|
+
 
 ## Web API の利用 (/webapi)
 

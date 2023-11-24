@@ -1,0 +1,3 @@
+りんご:apple
+ぶどう:grape
+ばなな:banana
