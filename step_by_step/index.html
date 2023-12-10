@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>課題: じゃんけんゲーム</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Rampart+One&family=Source+Code+Pro:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	font-size: 12px;
+}
+
+p {
+	padding: 0rem 1rem;
+}
+
+header {
+	width: 100%;
+	height: 3em;
+	background-color: #eee;
+	line-height: 3em;
+	padding-left: 2rem;
+}
+
+header h1 {
+	margin: 0;
+	padding: 0;
+}
+
+main {
+	counter-reset: problem-number;
+	padding: 0 2rem 0 1rem;
+}
+
+main h2 {
+	padding-left: 1rem;
+}
+
+.problems {
+	list-style: none;
+}
+
+.appendix {
+	counter-reset: appendix-number;
+	list-style: none;
+}
+
+.appendix>li,
+.problems>li {
+	counter-increment: problem-number;
+	font-size: 1.4rem;
+	border: solid 1px gray;
+	border-radius: 1rem;
+	padding: 0 1rem 1rem;
+	margin-bottom: 1rem;
+}
+
+.problems>li::before {
+	content: "問題" counter(problem-number) ":";
+}
+
+.appendix>li {
+	counter-increment: appendix-number;
+}
+
+.appendix>li::before {
+	content: "付録" counter(appendix-number) ":";
+}
+
+.problems>li>h3,
+.appendix>li>h3 {
+	display: inline-block;
+	font-size: 1.4rem;
+	margin: 0.5rem;
+}
+
+.hints {
+	list-style: none;
+}
+
+details>details {
+	padding-left: 2em;
+}
+
+figure {
+	padding: 0;
+	margin: 0;
+}
+
+figcaption {
+	margin: 0;
+	font-family: "Hachi Maru Pop", cursive;
+	font-family: "Rampart One", sans-serif;
+	font-family: "Source Code Pro", monospace;
+	background-color: #eee;
+	width: fit-content;
+	padding: 0 1rem;
+	border-top-right-radius: 0.5rem;
+	border-top-left-radius: 0.5rem;
+	color: gray;
+}
+
+pre {
+	padding-left: 1em;
+	font-family: "Hachi Maru Pop", cursive;
+	font-family: "Rampart One", sans-serif;
+	font-family: "Source Code Pro", monospace;
+	white-space: pre-wrap;
+}
+
+pre.code {
+	background-color: #eee;
+	color: gray;
+	margin-top: 0;
+}
+
+pre.code b {
+	color: black;
+}
+
+pre.console {
+	color: white;
+	background-color: black;
+}
+
+pre.console .comment {
+	color: gray;
+}
+
+footer {
+	position: sticky;
+	width: 100%;
+	left: 0;
+	top: 100vh;
+	height: 1em;
+	line-height: 1em;
+	background-color: #eee;
+	margin: 0;
+	padding: 0;
+}
+
+.appendix .even {
+	background-color: #eee;
+}
+
+.appendix .win {
+	background-color: aquamarine;
+}
+
+.appendix .lose {
+	background-color: lightpink;
+}
+
+footer>p {
+	text-align: right;
+	padding-right: 1rem;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+th,
+td {
+	border: solid 1px gray;
+	padding: 0 0.5em;
+}
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>課題: じゃんけんゲームの作成</h1>
+    </header>
+    <main>
+      <h2>基本問題</h2>
+      <ol class="problems">
+        <li>
+          <h3>1回じゃんけんができるじゃんけんゲームを作成する</h3>
+          <p>
+            キーボードから0,1,2
+            (それぞれグー、チョキ、パーに対応)を入力して勝敗を表示するプログラムを作成してください。
+          </p>
+          <ol class="hints">
+            <li>
+              <details>
+                <summary>ヒント1</summary>
+                <p>
+                  まずはプログラムを実行した結果表示される画面のイメージを固めるために、
+                  ベタに結果を表示するプログラムを記述します。
+                </p>
+                <p>出した手や勝敗の結果は仮のものでかまいません。</p>
+                <p>
+                  手の選択は、"ぐー","グー","ぐ〜"のような表記揺れを避けるために数字で入力することにします。
+                </p>
+                <p>入力画面と出力画面を意識してコメントを入れておくと後の作業が明確になります</p>
+                <details>
+                  <summary>実行例</summary>
+                  <pre class="console">
+
+% python janken.py
+じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): 0
+あなたの手: グー
+コンピューターの手: チョキ
+あなたの勝ち
+                            </pre
+                  >
+                </details>
+                <details>
+                  <summary>ソースコード例</summary>
+                  <figure>
+                    <figcaption>janken.py</figcaption>
+                    <pre class="code">
+
+# 入力
+<b>print("じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): 0")</b>
+
+# 処理
+
+# 出力
+<b>print("あなたの手: グー")</b>
+<b>print("コンピューターの手: チョキ")</b>
+<b>print("あなたの勝ち")</b>
+                            </pre>
+                  </figure>
+                </details>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>ヒント2</summary>
+                <p>実行するたびに異なる表示になる部分を変数に置き換えます。</p>
+                <p>
+                  入力値に対応する値を1つを選択して表示する場合にはリストを使って表示内容を切り替えると簡潔な記述になります。
+                </p>
+                <p> 入力値と表示が1対1ではなく、「入力値がある範囲に含まれている場合Aと表示する」というような場合は条件分岐で表示を切り替えます。</p>
+                <details>
+                  <summary>実行例</summary>
+                  <p>
+                    表示する内容を変数に置き換えただけなので、ヒント1の実行例と同じです。
+                  </p>
+                  <pre class="console">
+
+% python janken.py
+じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): 0
+あなたの手: グー
+コンピューターの手: チョキ
+あなたの勝ち
+                    </pre
+                  >
+                </details>
+                <details>
+                  <summary>ソースコード例</summary>
+                  <figure>
+                    <figcaption>janken.py</figcaption>
+                    <pre class="code">
+
+# 入力
+print("じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): 0")
+<b>player_hand = 0</b>  # プレイヤーの手
+
+# 処理
+<b>computer_hand = 1</b>  # コンピュータの手
+<b>result = 1 # 勝敗</b>
+
+# 出力
+<b>hands = ["グー", "チョキ", "パー"]</b>
+<b>results = ["あいこ", "あなたの勝ち", "あなたの負け"]</b>
+
+print("あなたの手:"<b>, hands[player_hand]</b>)
+print("コンピューターの手:"<b>, hands[computer_hand]</b>)
+print(<b>results[result]</b>)
+                              </pre>
+                  </figure>
+                </details>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>ヒント3</summary>
+                <p>
+                  プレイヤーの手をキーボード入力し、コンピュータの手を乱数で選択できるようにします。
+                </p>
+                <p>この時点では勝敗はまだ自動的に判定されません。</p>
+                <details>
+                  <summary>実行例</summary>
+                  <pre class="console">
+
+% python janken.py
+じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): <kbd>1</kbd> <span class="comment">← ユーザーがキーボードから入力します</span>
+あなたの手: チョキ <span class="comment">← ユーザーの入力に対応した手が表示されます</span>
+コンピューターの手: チョキ <span class="comment">← ランダムに選択された手が表示されます</span>
+あなたの勝ち <span class="comment">← 勝敗表示は固定</span>
+                  </pre>
+                </details>
+                <details>
+                  <summary>ソースコード例</summary>
+                  <figure>
+                    <figcaption>janken.py</figcaption>
+                    <pre class="code">
+
+<b>import random</b>
+
+# 入力
+<b>player_hand = input("じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): ")</b>  # プレイヤーの手
+<b>player_hand = int(player_hand)</b>  # 入力された文字列を整数に変換
+
+# 処理
+<b>computer_hand = random.randint(0, 2)</b>  # コンピュータの手を乱数で選択
+result = 1
+
+# 出力
+hands = ["グー", "チョキ", "パー"]
+results = ["あいこ", "あなたの勝ち", "あなたの負け"]
+
+print("あなたの手: ", hands[player_hand])
+print("コンピューターの手: ", hands[computer_hand])
+print(results[result])
+                    </pre>
+                  </figure>
+                </details>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>ヒント4</summary>
+                <p>
+                  プレイヤーの手とコンピュータの手から、勝敗を判定する処理を記述します。
+                </p>
+                <p>
+                  勝敗の判定方法はいくつかの選択肢がありますが、最初は効率を考えすぎずにわかりやすい方法を実装してみると良いでしょう。
+                </p>
+                <p>
+                  ここまで完成するとじゃんけんゲームが遊べるようになります。ただし、正しい入力をしないと例外が発生してプログラムは異常終了してしまいます。
+                </p>
+                <details>
+                  <summary>実行例</summary>
+                  <pre class="console">
+
+% python janken.py
+じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): <kbd>1</kbd> <span class="comment">← ユーザーがキーボードから入力します</span>
+あなたの手: チョキ <span class="comment">← ユーザーの入力に対応した手が表示されます</span>
+コンピューターの手: チョキ <span class="comment">← ランダムに選択された手が表示されます</span>
+あいこ <span class="comment">← ユーザーの手とコンピュータの手をもとに判定された勝敗が表示されます</span>
+                      </pre>
+                </details>
+                <details>
+                  <summary>ソースコード例</summary>
+                  <figure>
+                    <figcaption>janken.py</figcaption>
+                    <pre class="code">
+
+import random
+
+# 入力
+player_hand = input("じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): ")
+player_hand = int(player_hand)
+
+# 処理
+computer_hand = random.randint(0, 2)
+<b>if player_hand == computer_hand:</b>
+    <b>result = 0</b>  # あいこ
+<b>elif player_hand == 0 and computer_hand == 1:</b>  # グー vs チョキ
+    <b>result = 1</b>  # プレイヤーの勝ち
+<b>elif player_hand == 1 and computer_hand == 2:</b>  # チョキ vs パー
+    <b>result = 1</b>  # プレイヤーの勝ち
+<b>elif player_hand == 2 and computer_hand == 0:</b>  # パー vs グー
+    <b>result = 1</b>  # プレイヤーの勝ち
+<b>elif player_hand == 0 and computer_hand == 2:</b>  # グー vs パー
+    <b>result = 2</b>  # プレイヤーの負け
+<b>elif player_hand == 1 and computer_hand == 0:</b>  # チョキ vs グー
+    <b>result = 2</b>  # プレイヤーの負け
+<b>elif player_hand == 2 and computer_hand == 1:</b>  # パー vs チョキ
+    <b>result = 2</b>  # プレイヤーの負け
+
+# 出力
+hands = ["グー", "チョキ", "パー"]
+results = ["あいこ", "あなたの勝ち", "あなたの負け"]
+
+print("あなたの手: ", hands[player_hand])
+print("コンピューターの手: ", hands[computer_hand])
+print(results[result])
+                    </pre>
+                  </figure>
+                </details>
+              </details>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <h3>問題1に加えて不正な入力がおこなわれた場合に対処する</h3>
+          <p>
+            ユーザーが0,1,2以外の"-1"や"3","a"などを入力した場合にエラーメッセージを表示してください。
+          </p>
+          <ol class="hints">
+            <li>
+              <details>
+                <summary>ヒント1</summary>
+                <p>正しくない入力値は、「整数に変換できるが0,1,2以外の値」と「整数に変換できない値」に分類できます。
+                  それぞれ対応方法が異なりますので順番に実装していきます。</p>
+                <p>
+                  0,1,2以外の数字を入力された場合に条件分岐で処理を切り替えてエラーメッセージを表示します。
+                </p>
+                <details>
+                  <summary>実行例</summary>
+                  <pre class="console">
+
+% python janken.py
+じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): <kbd>-1</kbd> <span class="comment">← 0,1,2以外の数字を入力します</span>
+0,1,2のいずれかの数字を入力してください <span class="comment">← エラーメッセージが表示されます</span>
+
+% python janken.py <span class="comment">正しい入力のときの動作も確認します</span>
+じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): <kbd>1</kbd> <span class="comment">← ユーザーがキーボードから入力します</span>
+あなたの手: チョキ <span class="comment">← ユーザーの入力に対応した手が表示されます</span>
+コンピューターの手: チョキ <span class="comment">← ランダムに選択された手が表示されます</span>
+あいこ <span class="comment">← ユーザーの手とコンピュータの手をもとに判定された勝敗が表示されます</span>
+                        </pre>
+                </details>
+                <details>
+                  <summary>ソースコード例</summary>
+                  <p>正しくない入力値の場合は勝敗の値を扱う変数に-1を代入します。
+                    -1を使う理由は正しい勝敗の値である0,1,2以外の値で、マイナス記号が付くことで見た目でわかりやすく、かつ条件分岐が記述しやすいためです。
+                    プログラム開発においては昔から正常な値が正の数になる場合に異常値を負の整数で表わす文化があります。-1が整数変換に失敗、-2が範囲外のようにエラーの原因を表わすこともあります。
+                  </p>
+                  <p>
+                    ひとつの入力値チェックの条件分岐で勝敗の判定と表示までまとめて切り替えることもできますが、後のこと(関数化)を考えて勝敗判定(処理)と表示(出力)は分けておきます。
+                  </p>
+                  <figure>
+                    <figcaption>janken.py</figcaption>
+                    <pre class="code">
+
+import random
+
+# 入力
+player_hand = input("じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): ")
+player_hand = int(player_hand)
+
+# 処理
+computer_hand = random.randint(0, 2)
+<b>if 0 <= player_hand <= 2 :</b>
+    if player_hand == computer_hand:
+        result = 0  # あいこ
+    elif player_hand == 0 and computer_hand == 1:  # グー vs チョキ
+        result = 1  # プレイヤーの勝ち
+    elif player_hand == 1 and computer_hand == 2:  # チョキ vs パー
+        result = 1  # プレイヤーの勝ち
+    elif player_hand == 2 and computer_hand == 0:  # パー vs グー
+        result = 1  # プレイヤーの勝ち
+    elif player_hand == 0 and computer_hand == 2:  # グー vs パー
+        result = 2  # プレイヤーの負け
+    elif player_hand == 1 and computer_hand == 0:  # チョキ vs グー
+        result = 2  # プレイヤーの負け
+    elif player_hand == 2 and computer_hand == 1:  # パー vs チョキ
+        result = 2  # プレイヤーの負け
+<b>else:</b>
+    <b>result = -1</b>  # 不正な値なら結果を-1にする
+
+# 出力
+<b>if result >= 0:</b>
+    hands = ["グー", "チョキ", "パー"]
+    results = ["あいこ", "あなたの勝ち", "あなたの負け"]
+
+    print("あなたの手: ", hands[player_hand])
+    print("コンピューターの手: ", hands[computer_hand])
+    print(results[result])
+<b>else:</b>
+    <b>print("0,1,2のいずれかの数字を入力してください")</b>
+                    </pre>
+                  </figure>
+                </details>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>ヒント2</summary>
+                <p>数字以外を入力された場合にエラーメッセージを表示します。</p>
+                <details>
+                  <summary>実行例</summary>
+                  <pre class="console">
+
+% python janken.py
+じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): <kbd>a</kbd> <span class="comment">← 数字以外の文字を入力します</span>
+0,1,2のいずれかの数字を入力してください <span class="comment">← エラーメッセージが表示されます</span>
+
+% python janken.py <span class="comment">正しい入力のときの動作も確認します</span>
+じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): <kbd>1</kbd> <span class="comment">← ユーザーがキーボードから入力します</span>
+あなたの手: チョキ <span class="comment">← ユーザーの入力に対応した手が表示されます</span>
+コンピューターの手: チョキ <span class="comment">← ランダムに選択された手が表示されます</span>
+あいこ <span class="comment">← ユーザーの手とコンピュータの手をもとに判定された勝敗が表示されます</span>
+                          </pre>
+                </details>
+                <details>
+                  <summary>ソースコード例</summary>
+                  <fiure>
+                    <figcaption>janken.py</figcaption>
+                    <pre class="code">
+
+import random
+
+# 入力
+player_hand = input("じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): ")
+<b>try:</b>  # int関数が変換できなかった際に発生する例外NumberFormatExceptionを捕捉するための例外処理
+    player_hand = int(player_hand)
+<b>except:</b>
+    <b>player_hand = -1</b>  # 不正な入力をされたら異常値として正常値として使われない負の値を代入しておく
+
+# 処理
+computer_hand = random.randint(0, 2)
+if 0 <= player_hand <= 2 :
+
+    if player_hand == computer_hand:
+        result = 0  # あいこ
+    elif player_hand == 0 and computer_hand == 1:  # グー vs チョキ
+        result = 1  # プレイヤーの勝ち
+    elif player_hand == 1 and computer_hand == 2:  # チョキ vs パー
+        result = 1  # プレイヤーの勝ち
+    elif player_hand == 2 and computer_hand == 0:  # パー vs グー
+        result = 1  # プレイヤーの勝ち
+    elif player_hand == 0 and computer_hand == 2:  # グー vs パー
+        result = 2  # プレイヤーの負け
+    elif player_hand == 1 and computer_hand == 0:  # チョキ vs グー
+        result = 2  # プレイヤーの負け
+    elif player_hand == 2 and computer_hand == 1:  # パー vs チョキ
+        result = 2  # プレイヤーの負け
+else:
+    result = -1  # 不正な値なら結果を-1にする
+
+# 出力
+if result >= 0:
+    hands = ["グー", "チョキ", "パー"]
+    results = ["あいこ", "あなたの勝ち", "あなたの負け"]
+
+    print("あなたの手: ", hands[player_hand])
+    print("コンピューターの手: ", hands[computer_hand])
+    print(results[result])
+else:
+    print("0,1,2のいずれかの数字を入力してください")
+                      </pre>
+                  </fiure>
+                </details>
+              </details>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <h3>勝敗判定関数を定義し別ファイルに分離する</h3>
+          <p>
+            勝敗判定の処理を関数として定義して、その関数を呼び出して勝敗を決定するよう修正してください。
+          </p>
+          <ol class="hints">
+            <li>
+              <details>
+                <summary>ヒント1</summary>
+                <p>
+                  勝敗判定の条件分岐を別ファイルに分離し、関数の定義をおこないます
+                </p>
+                <details>
+                  <summary>ソースコード例</summary>
+                  <figure>
+                    <figcaption>janken_judge.py</figcaption>
+                    <pre class="code">
+
+<b>def judge(player_hand, computer_hand):</b>
+    <b>if 0 <= player_hand <= 2 :</b>
+        <b>if player_hand == computer_hand:</b>
+            <b>result = 0</b>  # あいこ
+        <b>elif player_hand == 0 and computer_hand == 1:</b>  # グー vs チョキ
+            <b>result = 1</b>  # プレイヤーの勝ち
+        <b>elif player_hand == 1 and computer_hand == 2:</b>  # チョキ vs パー
+            <b>result = 1</b>  # プレイヤーの勝ち
+        <b>elif player_hand == 2 and computer_hand == 0:</b>  # パー vs グー
+            <b>result = 1</b>  # プレイヤーの勝ち
+        <b>elif player_hand == 0 and computer_hand == 2:</b>  # グー vs パー
+            <b>result = 2</b>  # プレイヤーの負け
+        <b>elif player_hand == 1 and computer_hand == 0:</b>  # チョキ vs グー
+            <b>result = 2</b>  # プレイヤーの負け
+        <b>elif player_hand == 2 and computer_hand == 1:</b>  # パー vs チョキ
+            <b>result = 2</b>  # プレイヤーの負け
+    <b>else:</b>
+        <b>result = -1</b> # 不正な値なら結果を-1にする
+    <b>return result</b>
+                  </pre>
+                  </figure>
+                </details>
+              </details>
+              <details>
+                <summary>ヒント2</summary>
+                <p>関数をimportして元のプログラムで呼び出します</p>
+                <details>
+                  <summary>ソースコード例</summary>
+
+                  <figure>
+                    <figcaption>janken.py</figcaption>
+                    <pre class="code">
+
+import random
+<b>from janken_judge import judge</b>  # 分割したファイルから関数をインポートする
+
+# 入力
+player_hand = input("じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): ")
+try:
+    player_hand = int(player_hand)
+except:
+    player_hand = -1
+
+# 処理
+computer_hand = random.randint(0, 2)
+<b>result = judge(player_hand, computer_hand)</b>  # 勝敗判定関数の呼び出し
+
+# 出力
+if result >= 0:
+    hands = ["グー", "チョキ", "パー"]
+    results = ["あいこ", "あなたの勝ち", "あなたの負け"]
+
+    print("あなたの手: ", hands[player_hand])
+    print("コンピューターの手: ", hands[computer_hand])
+    print(results[result])
+else:
+    print("0,1,2のいずれかの数字を入力してください")
+                </pre>
+                  </figure>
+                </details>
+              </details>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <h3>あいこや入力異常の場合にじゃんけんを繰り返す</h3>
+          <p>
+            あいこになったり0,1,2以外を入力した場合はもう一度じゃんけんを繰り返すようプログラムを修正してください。
+          </p>
+          <ol class="hints">
+            <li>
+              <details>
+                <summary>ヒント1</summary>
+                <p>
+                  あいこや0,1,2以外が入力されたときにもう一度繰り返すと考えるより、無限ループの中で勝ちか負けならループを終了すると考えたほうがプログラムは簡潔に記述できます。
+                </p>
+                <details>
+                  <summary>実行例</summary>
+                  <pre class="console">
+
+% python janken.py
+じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): <kbd>-1</kbd> <span class="comment">← 0,1,2以外の数字を入力します</span>
+0,1,2のいずれかの数字を入力してください <span class="comment">← エラーメッセージが表示されます</span>
+
+じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): <kbd>a</kbd> <span class="comment">← 数字以外の文字を入力します</span>
+0,1,2のいずれかの数字を入力してください <span class="comment">← エラーメッセージが表示されます</span>
+
+じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): <kbd>1</kbd> <span class="comment">← ユーザーがキーボードから入力します</span>
+あなたの手: チョキ <span class="comment">← ユーザーの入力に対応した手が表示されます</span>
+コンピューターの手: チョキ <span class="comment">← ランダムに選択された手が表示されます</span>
+あいこ <span class="comment">← あいこの場合はもう一度じゃんけんが行なわれます</span>
+
+じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): <kbd>0</kbd> <span class="comment">← ユーザーがキーボードから入力します</span>
+あなたの手: グー <span class="comment">← ユーザーの入力に対応した手が表示されます</span>
+コンピューターの手: チョキ <span class="comment">← ランダムに選択された手が表示されます</span>
+あなたの勝ち <span class="comment">← 勝敗が決まればプログラムが終了します</span>
+
+</pre>
+                </details>
+                <details>
+                  <summary>ソースコード例</summary>
+                  <p>janken_judge.pyは変更する必要はありません</p>
+                  <figure>
+                    <figcaption>janken.py</figcaption>
+                    <pre class="code">
+
+import random
+from janken_judge import judge
+
+<b>while True:</b>  # 無限ループ
+    # 入力
+    player_hand = input("じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): ")
+    try:
+        player_hand = int(player_hand)
+    except:
+        player_hand = -1
+
+    # 処理
+    computer_hand = random.randint(0, 2)
+    result = judge(player_hand, computer_hand)
+
+    # 出力
+    if result >= 0:
+        hands = ["グー", "チョキ", "パー"]
+        results = ["あいこ", "あなたの勝ち", "あなたの負け"]
+
+        print("あなたの手: ", hands[player_hand])
+        print("コンピューターの手: ", hands[computer_hand])
+        print(results[result])
+        <b>if result > 0: </b>  # 1:勝ち、もしくは2:負けの場合
+            <b>break</b>  # 無限ループを終了する
+    else:
+        print(" 0,1,2のいずれかの数字を入力してください")
+
+    <b>print()</b> # 繰り返しをわかりやすくするために空の行を出力する
+                    </pre>
+                  </figure>
+                </details>
+              </details>
+            </li>
+          </ol>
+        </li>
+      </ol>
+      <h2>発展問題</h2>
+      <ol class="problems">
+        <li>
+          <h3>5回じゃんけんを繰り返して勝率を表示する</h3>
+          <p>
+            5回勝敗がつくまでじゃんけんを繰り返して、5回のうち何回勝ったか勝率を表示してください。
+          </p>
+          <p>
+            あいこになったり0,1,2以外を入力した場合は勝敗がつくまでじゃんけんを繰り返して1回と数えます。
+          </p>
+          <ol class="hints">
+            <li>
+              <details>
+                <summary>ヒント1</summary>
+                <p>
+                  勝った回数を記録する変数を用意し、5回じゃんけんの処理を繰り返します。
+                </p>
+                <details>
+                  <summary>実行例</summary>
+                  <pre class="console">
+
+% python janken.py
+1回目
+じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): <kbd>-1</kbd> <span class="comment">← 0,1,2以外の数字を入力します</span>
+0,1,2のいずれかの数字を入力してください <span class="comment">← エラーメッセージが表示されます</span>
+
+じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): <kbd>a</kbd> <span class="comment">← 数字以外の文字を入力します</span>
+0,1,2のいずれかの数字を入力してください <span class="comment">← エラーメッセージが表示されます</span>
+
+じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): <kbd>1</kbd> <span class="comment">← ユーザーがキーボードから入力します</span>
+あなたの手: チョキ <span class="comment">← ユーザーの入力に対応した手が表示されます</span>
+コンピューターの手: チョキ <span class="comment">← ランダムに選択された手が表示されます</span>
+あいこ <span class="comment">← あいこの場合はもう一度じゃんけんが行なわれます</span>
+
+2回目
+じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): <kbd>0</kbd> <span class="comment">← ユーザーがキーボードから入力します</span>
+あなたの手: グー <span class="comment">← ユーザーの入力に対応した手が表示されます</span>
+コンピューターの手: チョキ <span class="comment">← ランダムに選択された手が表示されます</span>
+あなたの勝ち
+
+3回目
+じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): <kbd>2</kbd> <span class="comment">← ユーザーがキーボードから入力します</span>
+あなたの手: パー <span class="comment">← ユーザーの入力に対応した手が表示されます</span>
+コンピューターの手: チョキ <span class="comment">← ランダムに選択された手が表示されます</span>
+あなたの負け
+
+4回目
+じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): <kbd>0</kbd> <span class="comment">← ユーザーがキーボードから入力します</span>
+あなたの手: グー <span class="comment">← ユーザーの入力に対応した手が表示されます</span>
+コンピューターの手: チョキ <span class="comment">← ランダムに選択された手が表示されます</span>
+あなたの勝ち
+
+5回目
+じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): <kbd>0</kbd> <span class="comment">← ユーザーがキーボードから入力します</span>
+あなたの手: グー <span class="comment">← ユーザーの入力に対応した手が表示されます</span>
+コンピューターの手: チョキ <span class="comment">← ランダムに選択された手が表示されます</span>
+あなたの勝ち
+
+5回勝負して3回勝ちました。勝率60%です。 <span class="comment">勝利回数と勝率が表示されます</span>
+
+</pre>
+                </details>
+                <details>
+                  <summary>ソースコード例</summary>
+                  <p>janken_judge.pyは変更する必要はありません</p>
+                  <figure>
+                    <figcaption>janken.py</figcaption>
+                    <pre class="code">
+
+import random
+from janken_judge import judge
+
+<b>wins = 0</b>  # 勝った回数
+<b>for i in range(1, 6):</b>  # iが1〜5の間繰り返す
+    <b>print("{0}回目".format(i))</b>  # 回数の表示
+    while True:
+        # 入力
+        player_hand = input("じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): ")
+        try:
+            player_hand = int(player_hand)
+        except:
+            player_hand = -1
+
+        # 処理
+        computer_hand = random.randint(0, 2)
+        result = judge(player_hand, computer_hand)
+        <b>if result == 1:</b>  # プレイヤーの勝ちなら
+            <b>wins += 1</b>  # 勝ち数を増やす
+
+        # 出力
+        if result >= 0:
+            hands = ["グー", "チョキ", "パー"]
+            results = ["あいこ", "あなたの勝ち", "あなたの負け"]
+
+            print("あなたの手: ", hands[player_hand])
+            print("コンピューターの手: ", hands[computer_hand])
+            print(results[result])
+            if result > 0:
+                break
+        else:
+            print(" 0,1,2のいずれかの数字を入力してください")
+
+        print()
+    <b>print()</b>  # 何回目の繰り返しかをわかりやすくするために空の行を出力する
+
+# 勝率表示 for inとrangeを使った場合、繰り返し終了時のiの値は5になります。
+<b>print("{0}回勝負して{1}回勝ちました。勝率{2}%です。".format(i, wins, wins * 100 / i))</b>
+                    </pre>
+                  </figure>
+                </details>
+              </details>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <h3>じゃんけんの結果をファイルに保存する</h3>
+          <p>
+            1回ごとの勝敗の結果をファイルに以下の項目をカンマ区切り形式(csv)で保存してください。
+          </p>
+          <table>
+            <tr>
+              <td>日時</td>
+              <td>プレイヤーの手(数値)</td>
+              <td>プレイヤーの手(文字列)</td>
+              <td>コンピュータの手(数値)</td>
+              <td>コンピュータの手(文字列)</td>
+              <td>勝敗(数値)</td>
+              <td>勝敗(文字列)</td>
+            </tr>
+          </table>
+          <p>
+            後で表計算ソフトなどで集計しやすいように、日時とそれぞれの手の数値と表示文字列、勝敗の数値と表示文字列をカンマ区切りで記録します。
+          </p>
+
+          <pre>
+"2023-11-01 10:00:00", 0,"グー",1,"チョキ",1,"あなたの勝ち"
+"2023-11-01 10:00:12", 0,"グー",0,"グー",0,"あいこ"
+"2023-11-01 10:00:23", 1,"チョキ",0,"グー",2,"あなたの負け"
+          </pre>
+          <ol class="hints">
+            <li>
+              <details>
+                <summary>ヒント1</summary>
+                <p>
+                  情報をファイルに保存する関数を定義して呼び出すことで、プログラムを簡潔に保ちます。
+                </p>
+                <details>
+                  <summary>実行例</summary>
+                  <p>実行例の画面表示は問題5と同じです。</p>
+                  <p>
+                    プログラムを実行したフォルダにresults.csvというファイルが作成され、勝敗の記録が保存されます。
+                  </p>
+                  <pre class="console">
+
+% python janken.py
+1回目
+じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): <kbd>-1</kbd> <span class="comment">← 0,1,2以外の数字を入力します</span>
+0,1,2のいずれかの数字を入力してください <span class="comment">← エラーメッセージが表示されます</span>
+
+じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): <kbd>a</kbd> <span class="comment">← 数字以外の文字を入力します</span>
+0,1,2のいずれかの数字を入力してください <span class="comment">← エラーメッセージが表示されます</span>
+
+じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): <kbd>1</kbd> <span class="comment">← ユーザーがキーボードから入力します</span>
+あなたの手: チョキ <span class="comment">← ユーザーの入力に対応した手が表示されます</span>
+コンピューターの手: チョキ <span class="comment">← ランダムに選択された手が表示されます</span>
+あいこ <span class="comment">← あいこの場合はもう一度じゃんけんが行なわれます</span>
+
+2回目
+じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): <kbd>0</kbd> <span class="comment">← ユーザーがキーボードから入力します</span>
+あなたの手: グー <span class="comment">← ユーザーの入力に対応した手が表示されます</span>
+コンピューターの手: チョキ <span class="comment">← ランダムに選択された手が表示されます</span>
+あなたの勝ち
+
+3回目
+じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): <kbd>2</kbd> <span class="comment">← ユーザーがキーボードから入力します</span>
+あなたの手: パー <span class="comment">← ユーザーの入力に対応した手が表示されます</span>
+コンピューターの手: チョキ <span class="comment">← ランダムに選択された手が表示されます</span>
+あなたの負け
+
+4回目
+じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): <kbd>0</kbd> <span class="comment">← ユーザーがキーボードから入力します</span>
+あなたの手: グー <span class="comment">← ユーザーの入力に対応した手が表示されます</span>
+コンピューターの手: チョキ <span class="comment">← ランダムに選択された手が表示されます</span>
+あなたの勝ち
+
+5回目
+じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): <kbd>0</kbd> <span class="comment">← ユーザーがキーボードから入力します</span>
+あなたの手: グー <span class="comment">← ユーザーの入力に対応した手が表示されます</span>
+コンピューターの手: チョキ <span class="comment">← ランダムに選択された手が表示されます</span>
+あなたの勝ち
+
+5回勝負して3回勝ちました。勝率60%です。 <span class="comment">勝利回数と勝率が表示されます</span>
+
+</pre>
+                </details>
+                <details>
+                  <summary>ソースコード例</summary>
+                  <p>
+                    janken_judge.pyに関数を追加し、janken.pyから呼び出す関数を入れ替えます。引数と戻り値を元のjudge関数と同じ型にすることで関数を簡単に入れ替えられるようにします。
+                  </p>
+                  <figure>
+                    <figcaption>janken_judge.py</figcaption>
+                    <pre class="code">
+
+<b>import datetime</b>  # 現在の日時を取得するためにdatetimeパッケージをimportする
+
+def judge(player_hand, computer_hand):
+    if 0 <= player_hand <= 2 :
+        if player_hand == computer_hand:
+            result = 0  # あいこ
+        elif player_hand == 0 and computer_hand == 1:  # グー vs チョキ
+            result = 1  # プレイヤーの勝ち
+        elif player_hand == 1 and computer_hand == 2:  # チョキ vs パー
+            result = 1  # プレイヤーの勝ち
+        elif player_hand == 2 and computer_hand == 0:  # パー vs グー
+            result = 1  # プレイヤーの勝ち
+        elif player_hand == 0 and computer_hand == 2:  # グー vs パー
+            result = 2  # プレイヤーの負け
+        elif player_hand == 1 and computer_hand == 0:  # チョキ vs グー
+            result = 2  # プレイヤーの負け
+        elif player_hand == 2 and computer_hand == 1:  # パー vs チョキ
+            result = 2  # プレイヤーの負け
+    else:
+        result = -1 # 不正な値なら結果を-1にする
+    return result
+
+<b>def logged_judge(player_hand, computer_hand):</b>   # ファイルに記録する勝敗判定関数
+    <b>result = judge(player_hand, computer_hand)</b>  # 勝敗判定関数を呼び出す
+    <b>now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")</b>  # 現在時刻の文字列を取得
+
+    <b>hands = ["グー", "チョキ", "パー"]</b>  # 表示文字列に変換するためのリスト
+    <b>results = ["あいこ", "あなたの勝ち", "あなたの負け"]</b>
+
+    <b>with open("results.csv", mode="a", encoding="utf-8") as f:</b>  # ファイルを開く
+        <b>f.write('"{0}",{1},"{2}",{3},"{4}",{5},"{6}"\n'.format(now, player_hand,</b>  # ファイルへ書き込む
+          <b>hands[player_hand], computer_hand, hands[computer_hand], result, results[result]))</b>
+
+    <b>return result</b>  # 勝敗判定の結果を返す
+
+                    </pre>
+                  </figure>
+                  <figure>
+                    <figcaption>janken.py</figcaption>
+                    <pre class="code">
+
+import random
+from janken_judge import <b>logged_judge</b>  # インポートする関数を変更
+
+wins = 0
+for i in range(1, 6):
+    print("{0}回目".format(i))
+    while True:
+        # 入力
+        player_hand = input("じゃ〜んけ〜ん (0:グー,1:チョキ,2:パー): ")
+        try:
+            player_hand = int(player_hand)
+        except:
+            player_hand = -1
+
+        # 処理
+        computer_hand = random.randint(0, 2)
+        result = <b>logged_judge</b>(player_hand, computer_hand)  # 呼び出す関数を変更
+        if result == 1:
+            wins += 1
+
+        # 出力
+        if result >= 0:
+            hands = ["グー", "チョキ", "パー"]
+            results = ["あいこ", "あなたの勝ち", "あなたの負け"]
+
+            print("あなたの手: ", hands[player_hand])
+            print("コンピューターの手: ", hands[computer_hand])
+            print(results[result])
+            if result > 0:
+                break
+        else:
+            print(" 0,1,2のいずれかの数字を入力してください")
+
+        print()
+    print()
+
+print("{0}回勝負して{1}回勝ちました。勝率{2}%です。".format(i, wins, wins * 100 / i))
+                    </pre>
+                  </figure>
+                </details>
+              </details>
+            </li>
+          </ol>
+        </li>
+      </ol>
+      <h2>付録</h2>
+      <ol class="appendix">
+        <li>
+          <h3>じゃんけん勝敗アルゴリズム</h3>
+          <details>
+            <summary>概要</summary>
+            <p>
+              グーを0,チョキを1,パーを2としたとき、コンピュータの手とプレイヤーの手の関係は9通りです。その結果は以下の表のようになります。
+            </p>
+            <table border="1">
+              <thead>
+                <tr>
+                  <th>コンピュータの手</th>
+                  <th>プレイヤーの手</th>
+                  <th>勝敗</th>
+                  <th>コンピュータの手 - プレイヤーの手</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="even">
+                  <td>0:グー</td>
+                  <td>0:グー</td>
+                  <td>あいこ</td>
+                  <td>0 - 0 = 0</td>
+                </tr>
+                <tr class="lose">
+                  <td>0:グー</td>
+                  <td>1:チョキ</td>
+                  <td>プレイヤーの負け</td>
+                  <td>0 - 1 = -1</td>
+                </tr>
+                <tr class="win">
+                  <td>0:グー</td>
+                  <td>2:パー</td>
+                  <td>プレイヤーの勝ち</td>
+                  <td>0 - 2 = -2</td>
+                </tr>
+                <tr class="win">
+                  <td>1:チョキ</td>
+                  <td>0:グー</td>
+                  <td>プレイヤーの勝ち</td>
+                  <td>1 - 0 = 1</td>
+                </tr>
+                <tr class="even">
+                  <td>1:チョキ</td>
+                  <td>1:チョキ</td>
+                  <td>あいこ</td>
+                  <td>1 - 1 = 0</td>
+                </tr>
+                <tr class="lose">
+                  <td>1:チョキ</td>
+                  <td>2:パー</td>
+                  <td>プレイヤーの負け</td>
+                  <td>1 - 2 = -1</td>
+                </tr>
+                <tr class="lose">
+                  <td>2:パー</td>
+                  <td>0:グー</td>
+                  <td>プレイヤーの負け</td>
+                  <td>2 - 0 = 2</td>
+                </tr>
+                <tr class="win">
+                  <td>2:パー</td>
+                  <td>1:チョキ</td>
+                  <td>プレイヤーの勝ち</td>
+                  <td>2 - 1 = 1</td>
+                </tr>
+                <tr class="even">
+                  <td>2:パー</td>
+                  <td>2:パー</td>
+                  <td>あいこ</td>
+                  <td>2 - 2 = 0</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>
+              コンピュータの手 -
+              プレイヤーの手の結果をまとめると、以下の表のように5通りであることがわかります。9通りの条件分岐から5通りの条件分岐まで減らせました。
+            </p>
+            <table border="1">
+              <tr class="even">
+                <th>あいこ</th>
+                <td>0</td>
+              </tr>
+              <tr class="win">
+                <th>プレイヤーの勝ち</th>
+                <td>-2,1</td>
+              </tr>
+              <tr class="lose">
+                <th>プレイヤーの負け</th>
+                <td>-1,2</td>
+              </tr>
+            </table>
+            <p>
+              ですが、じゃんけんの結果は3通りですので、もう少し工夫してみましょう。
+            </p>
+            <p>Pythonの剰余を求める算術演算子を使って計算してみます。</p>
+            <pre class="code">
+
+<b>print(-2 % 3)</b> # 1 プレイヤーの勝ち
+<b>print(-1 % 3)</b> # 2 プレイヤーの負け
+<b>print( 0 % 3)</b> # 0 あいこ
+<b>print( 1 % 3)</b> # 1 プレイヤーの勝ち
+<b>print( 2 % 3)</b> # 2 プレイヤーの負け
+            </pre>
+            <p>剰余を求めることで、結果が0,1,2の3通りになりました。</p>
+            <p>
+              ※ Pythonでは、負の数を正の数で割った整数の結果を求めると -2 // 3 =
+              -1 という結果になります。剰余を求める式は 3 - (-2 * -1) = 1
+              になります。
+            </p>
+            <p>
+              ※ C言語やJavaScriptなど他の言語では、剰余の結果が異なる(-2 % 3 =
+              -2)ので注意してください。このような言語では、(コンピュータの手 -
+              プレイヤーの手 + 3) % 3という式を使用します。
+            </p>
+          </details>
+          <details>
+            <summary>ソースコード例</summary>
+            <p>
+              ここまでの内容をソースコードに反映すると、問題3で作成した勝敗判定関数は以下の例のように簡略化できます。
+            </p>
+            <figure>
+              <figcaption>janken_judge.py</figcaption>
+              <pre class="code">
+
+def judge(player_hand, computer_hand):
+    if 0 <= player_hand <= 2 :
+        # 勝敗判定 0:あいこ, 1:プレイヤーの勝ち, 2:プレイヤーの負け
+        <b>result = (computer_hand - player_hand) % 3</b>
+    else:
+        result = -1 # 不正な値なら結果を-1にする
+    return result
+            </pre>
+            </figure>
+          </details>
+        </li>
+      </ol>
+    </main>
+    <footer><p>Python版 rev.20231125</p></footer>
+  </body>
+</html>
