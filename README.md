@@ -11,9 +11,9 @@ Java 版は[こちら](https://github.com/AyumuTakai/java_samples)
 人によって開発の流れ、順番や考え方は異なります。
 この手順だけが正解のように扱わず、あくまで一つの例として扱ってください。
 
-[詳細はこちら](https://github.com/AyumuTakai/python_samples/blob/main/step_by_step/index.html)
+<!-- [詳細はこちら](https://github.com/AyumuTakai/python_samples/blob/main/step_by_step/index.html) -->
 
-[全ファイルダウンロード](https://github.com/AyumuTakai/python_samples/blob/main/step_by_step/janken_step_by_step.zip)
+[step by step全ファイル(15kb)ダウンロード](https://github.com/AyumuTakai/python_samples/raw/main/step_by_step/janken_step_by_step.zip)
 
 ## 変換/暗号 (/convert)
 
